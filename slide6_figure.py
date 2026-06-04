@@ -21,7 +21,7 @@ print("Building figure...")
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
 # LEFT — p-value distribution across all 740 genes
-# Top 50 highlighted in teal, rest in light grey
+
 colors = ['#0891B2' if i < 50 else '#CBD5E1' for i in range(len(ranked))]
 
 axes[0].bar(ranked['rank'], -np.log10(ranked['pvalue']),
@@ -43,7 +43,7 @@ axes[0].annotate('Top 50 genes\n(most significant)',
                  fontsize=8.5, color='#0891B2',
                  arrowprops=dict(arrowstyle='->', color='#0891B2', lw=1.2))
 
-# RIGHT — top 20 genes horizontal bar chart
+
 top20 = ranked.head(20)
 axes[1].barh(range(20), -np.log10(top20['pvalue'])[::-1],
              color='#0891B2', alpha=0.85)
